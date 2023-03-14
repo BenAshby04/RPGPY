@@ -3,7 +3,7 @@ import numpy as np
 import sys
 from sprites import *
 from config import *
-from map import *
+
 
 
 class Game:
