@@ -32,9 +32,15 @@ class Game:
         self.createTilemap()
         
     def createTilemap(self):
+        self.monsterlist = []
+        
         for j in range(len(self.tilemap)):
 
             for i in range(len(self.tilemap[j])):
+                if self.tilemap[j][i] == 2:
+                    Grass(self,i,j)
+                    
+                    self.monsterlist.append(monster(self,i,j))
                 if self.tilemap[j][i] == 1:
                     Grass(self,i,j)
                     Block(self,i,j)
@@ -43,6 +49,7 @@ class Game:
                     self.player = Player(self,i,j)
                 if self.tilemap[j][i] == -1:
                     Grass(self,i,j)
+                
         
         
     def events(self):
@@ -76,7 +83,9 @@ class Game:
         self.running = False
         
     def game_over(self):
-        pass
+        self.running = False
+        pygame.quit()
+        sys.exit()
     def intro_screen(self):
         pass
     def loadMap(self):
